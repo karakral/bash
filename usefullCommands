@@ -1,6 +1,11 @@
 #Usefull comamnd
+0- short command
 #if you'r external device mounted read only just do this
 sudo mount -o remount,uid=1000,gid=1000,rw /dev/sdb2
 #before this command you should do this
 $ ls -l /dev/sdb2
 #To determine the permissions on a drive, we can use the ls command with the -l option and the device name. The following command lists the disk and its permissions:
+
+1- short comand 
+How to save a file in vim or vi without sudo
+:w !sudo tee %
