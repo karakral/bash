@@ -1,0 +1,24 @@
+sometimes, we want to run some scripts ( task ) before or after commits or before or after pushing, and etc. We can config this for pre-push and etc. 
+Enjoy the Bash script.
+  
+0- cd .git/hooks
+1-  add the bash script top of the pre commit.sample file
+#!/bin/sh
+# to check if run hooks in the project or not after, run we can comment it
+echo "🚀 Pre-push hook triggered!"
+# Name of the branch to block
+BLOCKED_BRANCH="testhook"
+
+# Get the current branch name
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+
+if [ "$CURRENT_BRANCH" = "$BLOCKED_BRANCH" ]; then
+    echo "🚫 Pushing from the branch '$BLOCKED_BRANCH' is not allowed."
+    exit 1
+fi
+
+# Allow push for other branches
+exit 0
+2- mv pre-commit-sample pre-commit
+3- chmod +x .git/hooks/pre-commit
+
