@@ -8,4 +8,5 @@ $ ls -l /dev/sdb2
 
 1- short comand 
 How to save a file in vim or vi without sudo
+i'm sure it's happened a lot we opened a file that needs superuser access, and after changing it, we found out, oh there is super user access, at that time we exited without saving but there is a solution 
 :w !sudo tee %
